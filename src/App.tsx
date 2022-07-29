@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useQuery } from "@tanstack/react-query";
+
+const apiResponse = {
+  name: "ACCOUNTS",
+  success: true,
+  message: "Healthy :3",
+  hostname: "accounts-3e01826bfeed",
+  time: 1659107777445,
+};
+
+const time = new Date(apiResponse.time);
 
 function App() {
+  const { isLoading, error, data } = useQuery(["repoData"], () =>
+    fetch("https://api.factoryfour.com/accounts/health/status").then((res) =>
+      res.json()
+    )
+  );
+  console.log({ isLoading, error, data });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="border-2 border-black p-2">
+        <h1>{apiResponse.name}</h1>
+        <div className={apiResponse.success ? "bg-green-500" : ""}>
+          <p>{apiResponse.message}</p>
+        </div>
+        <p>{apiResponse.hostname}</p>
+        <p>{time.toISOString()}</p>
+      </div>
     </div>
   );
 }
