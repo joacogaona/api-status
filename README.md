@@ -20,10 +20,10 @@ In the project directory, you can run:
 
 ### `yarn start`
 
-(In order to view the project correctly you need to disable Cross-Origin restrictions from your browser)
-
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+You can also view the project [here](https://api-status-challenge.netlify.app/)
 
 ## Configuration of Api interval
 
