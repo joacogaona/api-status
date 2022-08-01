@@ -26,7 +26,7 @@ const ApiCard = ({ apiName }: { apiName: string }) => {
         </div>
         <p className="text-red-500 text-xl">OUTAGE</p>
         <p className="text-red-500">
-          {error?.response
+          {error?.response?.status
             ? `${error.response.status} ${getReasonPhrase(
                 error.response.status
               )}`
