@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getReasonPhrase } from "http-status-codes";
 import { AxiosError } from "axios";
-import { REFETCH_API_STATUS_INTERVAL_MILISECONDS } from "../constants";
+import { REFETCH_API_STATUS_INTERVAL_MILISECONDS } from "../config/constants";
 import Loader from "../components/Loader";
 import { fetchApiStatus, Api } from "../api/index";
 
@@ -12,6 +12,7 @@ const ApiCard = ({ apiName }: { apiName: string }) => {
     {
       refetchInterval: REFETCH_API_STATUS_INTERVAL_MILISECONDS,
       retry: false,
+      refetchOnWindowFocus: false,
     }
   );
 

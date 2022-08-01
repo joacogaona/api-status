@@ -1,6 +1,18 @@
-# Getting Started with Create React App
+# Status page for FactoryFour Apis
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app shows the apis status every certain amount of time configured in the constants.tsx file.
+
+## Project structure inside /src
+
+The App is divided into 4 main folders:
+
+- /statusDashboard . Here we have all the logic and presentational data of the dahboard page (which is the only page at this moment). Most of the logic is inside the ApiCard component which manages the api calls.
+
+- /config . Here we have the file constants.tsx which can be edited to change the time interval of api calls.
+
+- /components . All reusable components go in this folder
+
+- /api . All the api call functions definitions go in this folder
 
 ## Available Scripts
 
@@ -8,39 +20,33 @@ In the project directory, you can run:
 
 ### `yarn start`
 
+(In order to view the project correctly you need to disable Cross-Origin restrictions from your browser)
+
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Configuration of Api interval
 
-### `yarn test`
+If you need to change the time interval in which the api status is refreshed:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- You can do so by changing the variable REFETCH_API_STATUS_INTERVAL_MILISECONDS value, which is located in the file constants.tsx inside folder config. (src/config/constant.tsx) (The value should be expressed in miliseconds).
 
-### `yarn build`
+In this file you can also add new api entities or delete unused ones by modifying the array in the variable API_LIST.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies chosen for the project
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### [Typescript](https://www.typescriptlang.org/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Improves the development speed and efficiency by solving or pointing at bugs during the development process.
 
-### `yarn eject`
+### [React-Query](https://tanstack.com/query/v4/docs/overview)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Since the data flow comes from the server and we do not need to manipulate this data in the client side, is a good option for clean and efficient code.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### [Axios](https://axios-http.com/docs/intro)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Simplifies api calls
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### [Tailwind Css](https://v1.tailwindcss.com/docs/utility-first)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Fast to style, easier to maintain than css and avoids possible problems with opinionated predesigned components.
